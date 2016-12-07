@@ -1,0 +1,18 @@
+{
+  "name": "motor-de-inferencia",
+  "version": "0.1",
+  "description": "Motor de inferencia para la materia 75.69 – Sistemas automáticos de diagnóstico y detección de fallas II",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js -t f",
+    "test": "node test/test-index.js"
+  },
+  "author": "fjfarina",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "body-parser": "1.8",
+    "fs": "0.0.1-security",
+    "command-line-args": "3.0.1"
+  }
+}
