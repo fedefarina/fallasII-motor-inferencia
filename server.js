@@ -2,8 +2,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
-const RulesLoader = require('./RulesLoader');
-const RulesManager = require('./RulesManager');
+const RulesLoader = require('./app/RulesLoader');
+const RulesManager = require('./app/RulesManager');
 const rulesManager = new RulesManager();
 
 app.use(bodyParser.json());
@@ -52,6 +52,18 @@ app.post('/hypothesis', function (req, res) {
   let hypothesis = req.body;
   rulesManager.setHypothesis(hypothesis)
   res.status(200).send();
+});
+
+app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/views/pages');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+
+
+
+
+app.get('/', function (request, response) {
+  response.render('main.html');
 });
 
 app.listen(3000, function () {
