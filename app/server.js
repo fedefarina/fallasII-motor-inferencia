@@ -22,19 +22,16 @@ app.get('/backward-strategy', function (req, res) {
 });
 
 app.get('/rules', function (req, res) {
-  console.log('GET - rules')
   res.status(200).send(rulesManager.getRuleSet());
 });
 
 app.post('/rules', function (req, res) {
-  console.log(req.body)
   let rules = req.body
   rulesManager.setRules(rules)
   res.status(200).send()
 });
 
 app.get('/knowledgeBase', function (req, res) {
-  console.log('GET - knowledgeBase')
   res.status(200).send(rulesManager.getKnowledgeBase())
 });
 
@@ -59,5 +56,4 @@ app.post('/hypothesis', function (req, res) {
 
 app.listen(3000, function () {
   console.log('app listening on port 3000!')
-
 });

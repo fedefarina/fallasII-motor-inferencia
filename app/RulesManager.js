@@ -14,13 +14,13 @@ const RulesManager = function (executionType) {
 }
 
 RulesManager.prototype.setRules = function (rules) {
-  rules.map((rule)=>{
+  rules.map((rule) => {
     this.ruleSet.addRule(rule);
   })
 }
 
 RulesManager.prototype.setKnowledgeBase = function (knowledgeBase) {
-  knowledgeBase.map((knowledge)=>{
+  knowledgeBase.map((knowledge) => {
     this.knowledgeBase.addKnowledge(knowledge);
   })
 }
