@@ -35,6 +35,7 @@ BackwardStrategy.prototype.engineIteration = function(){
         // If the rule has the consequence of the hypothesis
         console.log('Evaluating rule',rule.name, rule.conditionObject,rule.consecuence);
 
+
         if (rule.hasConsequence(this.hypothesis)) {
             this.hypothesis = rule.conditionObject;
             // # Repeat for the condition of the rule

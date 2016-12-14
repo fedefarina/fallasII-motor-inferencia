@@ -1,22 +1,22 @@
 "use strict";
 
-var Condition = require('./Condition');
-var Consecuence = require('./Consecuence');
+const Condition = require('./Condition')
+const Consecuence = require('./Consecuence')
 
 function Rule(data) {
 
-  this.name = data.rule.name;
-  this.conditionObject = data.rule.conditionObject;
+  this.name = data.rule.name
+  this.conditionObject = data.rule.conditionObject
   this.fields = data.rule.fields;
-  this.condition = new Condition(data.condition.subjectName, data.condition.equalsTo);
-  this.consecuence = new Consecuence(data.consecuence.fieldName, data.consecuence.value);
+  this.condition = new Condition(data.condition.subjectName, data.condition.equalsTo)
+  this.consecuence = new Consecuence(data.consecuence.fieldName, data.consecuence.value)
 
 }
 
 Rule.prototype.evaluate = function (knowledgeBases) {
   var ruleSuccess = false;
   for (var knowledgeBase of knowledgeBases) {
-    ruleSuccess = this.condition.evaluate(knowledgeBase);
+    ruleSuccess = this.condition.evaluate(knowledgeBase)
     if (ruleSuccess) {
       const newKnowledge = {}
       newKnowledge[this.consecuence.fieldName] = this.consecuence.value
@@ -31,4 +31,4 @@ Rule.prototype.hasConsequence = function (testConsequence) {
   return (this.consecuence.equals(testConsequence))
 }
 
-module.exports = Rule;
+module.exports = Rule
